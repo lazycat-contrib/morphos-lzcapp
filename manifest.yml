@@ -18,4 +18,4 @@ services:
   morphos-server:
     image: registry.lazycat.cloud/czyt/danvergara/morphos-server:3ca3c1e09c6ad2bb
     binds:
-      - /lzcapp/cache/tmp:/tmp
+      - /lzcapp/cache:/tmp
