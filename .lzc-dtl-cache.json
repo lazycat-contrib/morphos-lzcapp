@@ -1,0 +1,31 @@
+{
+  "name": "Morphos",
+  "package": "cloud.lazycat.app.morphos",
+  "description": "自托管的文件转换工具",
+  "homepage": "https://github.com/danvergara/morphos",
+  "author": "danvergara",
+  "app_features": [
+    "background_task"
+  ],
+  "subdomain": "morphos",
+  "version": "0.6.0",
+  "iconPath": "icon.png",
+  "composePath": "docker-compose.yaml",
+  "unsupported_platforms": [],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "morphos-server_8080_8080": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    }
+  },
+  "image_ghcr.io_danvergara_morphos-server_latest": {
+    "originalImage": "ghcr.io/danvergara/morphos-server:latest",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/czyt/danvergara/morphos-server:3ca3c1e09c6ad2bb",
+    "timestamp": "2025-02-17T05:11:08.576Z"
+  },
+  "morphos-server_volume_/tmp_action": "useContent"
+}
