@@ -1,0 +1,38 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/morphos.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: morphos-server
+build:
+  run_buildscript: false
+images:
+  # 主应用：上游 ghcr 有完整三段 SemVer tag（0.1.0~0.6.0），排除 latest
+  - id: morphos-server
+    target: service
+    service: morphos-server
+    source: ghcr.io/danvergara/morphos-server
+    channel: stable
+    sort: semver
+    tag_regex: '^\d+\.\d+\.\d+$'
+    delivery:
+      mode: mirror
+
+stores:
+  official:
+    # Official store publication is intentionally disabled; publish only to Miaomiao Store.
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Morphos
+    summary: "自托管的文件转换工具"

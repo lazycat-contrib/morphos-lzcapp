@@ -1,0 +1,13 @@
+application:
+  subdomain: morphos
+  background_task: true
+  multi_instance: false
+  upstreams:
+    - location: /
+      backend: http://morphos-server:8080/
+services:
+  morphos-server:
+    # upstream: ghcr.io/danvergara/morphos-server:0.6.0
+    image: ghcr.1ms.run/danvergara/morphos-server:0.6.0
+    binds:
+      - /lzcapp/cache:/tmp

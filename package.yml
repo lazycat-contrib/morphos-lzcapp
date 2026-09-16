@@ -1,0 +1,14 @@
+package: cloud.lazycat.app.morphos
+version: 0.6.0
+name: Morphos
+description: "自托管的文件转换工具"
+min_os_version: "1.5.0"
+homepage: https://github.com/danvergara/morphos
+author: danvergara
+locales:
+  zh:
+    description: "自托管的文件转换工具"
+    name: Morphos
+  en:
+    description: "Self-hosted file conversion tool"
+    name: Morphos
